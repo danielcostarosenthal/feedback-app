@@ -1,11 +1,16 @@
-import { Header } from './styles/Header.styled'
+import { StyledHeader } from './styles/Header.styled'
 
-const Header = () => {
+const Header = (props) => {
 	return (
-		<Header>
-			<h1>This is a header</h1>
-		</Header>
+		<StyledHeader>
+			<h2>{props.title}</h2>
+		</StyledHeader>
 	)
+}
+
+// Header Default Props
+Header.defaultProps = {
+	title: 'Feedback React App',
 }
 
 export default Header

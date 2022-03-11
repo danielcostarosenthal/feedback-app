@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 
-export const Header = styled.header`
+export const StyledHeader = styled.header`
 	width: 100%;
-	max-width: 1600px;
-	padding: 0 50px;
+	height: 100px;
 	margin: auto;
+	padding: 0 20px;
+
+	background-color: #4682b4;
+	color: #fff;
+	line-height: 100px;
 `
