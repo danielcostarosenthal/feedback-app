@@ -1,15 +1,8 @@
-import { Card } from './styles/Card.styled'
-import { useState } from 'react'
+import PropTypes from 'prop-types'
+import Card from './shared/Card'
 
 const FeedbackItem = (props) => {
-	const [rating, ratingSet] = useState(10)
-
 	const handleClick = (item) => {
-		// We can access the previous value of the state
-		ratingSet((previous) => {
-			return previous + 1
-		})
-
 		console.log(`Rating: ${item.rating}`)
 		console.log(`Text: ${item.text}`)
 		console.log(`ID: ${item.id}`)
@@ -27,6 +20,20 @@ const FeedbackItem = (props) => {
 			</button>
 		</Card>
 	)
+}
+
+// FeedbackItem Default Props
+FeedbackItem.defaultProps = {
+	item: {
+		rating: 0,
+		text: 'The feedback text is missing. Please reload application or try later.',
+		id: 1,
+	},
+}
+
+// FeedbackItem Typechecking PropTypes
+FeedbackItem.propTypes = {
+	item: PropTypes.object.isRequired,
 }
 
 export default FeedbackItem

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Card = styled.div`
+export const StyledCard = styled.div`
 	width: 100%;
 	max-width: 350px;
 	margin: 30px 0;
