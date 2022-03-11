@@ -1,22 +1,22 @@
-import PropTypes from 'prop-types'
 import { Resets } from './components/styles/Resets.styled'
 import { Container } from './components/styles/Container.styled'
 import Header from './components/Header'
+import FeedbackList from './components/FeedbackList'
+import FeedbackData from './data/FeedbackData'
+import { useState } from 'react'
 
 const App = () => {
+	const [feedback, feedbackSet] = useState(FeedbackData)
+
 	return (
 		<>
 			<Resets />
+			<Header />
 			<Container>
-				<Header />
+				<FeedbackList feedback={feedback} />
 			</Container>
 		</>
 	)
-}
-
-// Header Typechecking PropTypes
-Header.propTypes = {
-	title: PropTypes.string.isRequired,
 }
 
 export default App
