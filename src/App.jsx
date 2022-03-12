@@ -8,7 +8,6 @@ import FeedbackData from './data/FeedbackData'
 
 const App = () => {
 	const [feedback, feedbackSet] = useState(FeedbackData)
-	const [isPassed, isPassedSet] = useState(true)
 
 	const deleteFeedback = (id) => {
 		if (window.confirm('Are you sure you want to delete this feedback?')) {
