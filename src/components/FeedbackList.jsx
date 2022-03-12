@@ -3,7 +3,12 @@ import FeedbackItem from './FeedbackItem'
 
 const FeedbackList = (props) => {
 	if (!props.feedback || props.feedback.length === 0) {
-		return <p className='no-feedback'>No Feedbacks to be displayed...</p>
+		return (
+			<p className='no-feedback'>
+				Please check the props passed to <span>FeedbackList</span> inside the
+				root component <span>App</span>.
+			</p>
+		)
 	}
 
 	return (
@@ -17,17 +22,6 @@ const FeedbackList = (props) => {
 			))}
 		</ul>
 	)
-}
-
-// FeedbackList Default Props
-FeedbackList.defaultProps = {
-	feedback: [
-		{
-			rating: 0,
-			text: 'The feedback text is missing. Please reload application or try later.',
-			id: 1,
-		},
-	],
 }
 
 // FeedbackList Typechecking PropTypes

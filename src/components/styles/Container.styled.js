@@ -7,9 +7,16 @@ export const Container = styled.div`
 	padding: 20px;
 
 	.no-feedback {
+		max-width: 425px;
+		margin: 50px auto;
+
 		color: #fff;
 		font-size: 1.25rem;
 		text-align: center;
-		margin-top: 50px;
+	}
+
+	.no-feedback span {
+		font-style: italic;
+		font-weight: bold;
 	}
 `
