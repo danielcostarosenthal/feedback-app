@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 const FeedbackData = [
 	{
 		rating: 8,

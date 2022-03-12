@@ -1,23 +1,17 @@
 import PropTypes from 'prop-types'
 import Card from './shared/Card'
+import { FaTimes } from 'react-icons/fa'
 
 const FeedbackItem = (props) => {
-	const handleClick = (item) => {
-		console.log(`Rating: ${item.rating}`)
-		console.log(`Text: ${item.text}`)
-		console.log(`ID: ${item.id}`)
-	}
-
 	return (
 		<Card>
 			<div className='card-rating'>{props.item.rating}</div>
-			<div className='card-text'>{props.item.text}</div>
 			<button
-				onClick={() => {
-					handleClick(props.item)
-				}}>
-				Click
+				className='card-delete'
+				onClick={() => props.handleDelete(props.item.id)}>
+				<FaTimes />
 			</button>
+			<div className='card-text'>{props.item.text}</div>
 		</Card>
 	)
 }

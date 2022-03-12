@@ -1,21 +1,24 @@
 import styled from 'styled-components'
 
-export const StyledCard = styled.div`
+export const StyledCard = styled.li`
 	width: 100%;
-	max-width: 350px;
-	margin: 30px 0;
-	padding: 30px 20px;
+	max-width: 375px;
+	margin: 30px auto;
+	padding: 50px 20px 30px 20px;
 	position: relative;
 
-	background-color: #fff;
+	background-color: ${(props) =>
+		props.reverse ? 'rgba(0, 0, 0, 0.4)' : '#fff'};
 	border-radius: 5px;
+	line-height: 1.5;
+	list-style: none;
 
 	.card-rating {
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 40px;
-		height: 40px;
+		width: 30px;
+		height: 30px;
 		transform: translate(-50%, -50%);
 
 		background-color: #b14e84;
@@ -23,24 +26,57 @@ export const StyledCard = styled.div`
 		color: #fff;
 		font-weight: bold;
 		font-size: 1.25rem;
-		line-height: 40px;
+		line-height: 30px;
 		text-align: center;
 	}
 
+	.card-delete {
+		width: 0px;
+		height: 0px;
+		position: absolute;
+		top: 20px;
+		right: 20px;
+
+		background-color: none;
+		border: none;
+		outline: none;
+	}
+
+	.card-delete > svg {
+		transform: translate(-50%, -50%);
+
+		color: #b14e84;
+		cursor: pointer;
+		font-size: 1.25rem;
+	}
+
+	.card-delete > svg:active {
+		font-size: 1.1rem;
+	}
+
 	.card-text {
-		color: #333;
+		color: ${(props) => (props.reverse ? '#fff' : '#333')};
 		font-style: italic;
 	}
 
-	button {
-		margin-top: 30px;
-		padding: 5px 20px;
+	/* This class is not used */
+	.card-btn {
+		width: 100%;
+		margin: 30px auto 0 auto;
+		padding: 10px 20px;
+		display: block;
 
 		background-color: #b14e84;
 		border: 0;
 		border-radius: 5px;
 		color: #fff;
+		cursor: pointer;
 		font-size: inherit;
 		outline: none;
+		text-align: center;
+	}
+
+	.card-btn:active {
+		transform: scale(0.98);
 	}
 `
