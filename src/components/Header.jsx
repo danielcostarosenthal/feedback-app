@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
 import { StyledHeader } from './styles/Header.styled'
 
-const Header = (props) => {
+const Header = ({ title }) => {
 	return (
 		<StyledHeader>
-			<h2>{props.title}</h2>
+			<h2>{title}</h2>
 		</StyledHeader>
 	)
 }
