@@ -1,25 +1,51 @@
 import { useState } from 'react'
-import Card from './shared/Card'
 import { StyledFeedbackForm } from './styles/FeedbackForm.styled'
 import Button from './shared/Button'
+import Card from './shared/Card'
+import RatingSelect from './RatingSelect'
 
-const FeedbackForm = () => {
+const FeedbackForm = ({ handleAddFeedback }) => {
 	const [text, textSet] = useState('')
+	const [rating, ratingSet] = useState(10)
+	const [isDisabled, isDisabledSet] = useState(true)
+	const [message, messageSet] = useState('')
 
 	const handleTextChange = (e) => {
+		if (text === '') {
+			isDisabledSet(true)
+			messageSet(null)
+		} else if (text !== '' && text.trim().length <= 10) {
+			isDisabledSet(true)
+			messageSet('Text must be at least 10 characters long')
+		} else {
+			messageSet(null)
+			isDisabledSet(false)
+		}
 		textSet(e.target.value)
 	}
 
-	const handleClick = (e) => {
-		textSet('')
-		document.querySelector('input').focus()
+	const handleSubmit = (e) => {
+		e.preventDefault()
+
+		if (text.trim().length > 10) {
+			const newFeedback = {
+				text: text,
+				rating: rating,
+			}
+			handleAddFeedback(newFeedback)
+			textSet('')
+		}
 	}
 
 	return (
 		<Card>
-			<StyledFeedbackForm>
+			<StyledFeedbackForm onSubmit={handleSubmit}>
 				<h2>Please rate our service</h2>
-				{/* TODO */}
+				<RatingSelect
+					select={(rating) => {
+						ratingSet(rating)
+					}}
+				/>
 				<div className='input-group'>
 					<input
 						onChange={handleTextChange}
@@ -27,15 +53,11 @@ const FeedbackForm = () => {
 						placeholder='Write your review'
 						value={text}
 					/>
-					<Button
-						type='submit'
-						version='primary'
-						onClick={handleClick}
-						onSubmit={handleClick}
-						isDisabled={text.length < 9 ? true : false}>
+					<Button type='submit' version='primary' isDisabled={isDisabled}>
 						Send
 					</Button>
 				</div>
+				{message && <div className='message'>{message}</div>}
 			</StyledFeedbackForm>
 		</Card>
 	)

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StyledFeedbackForm = styled.div`
+export const StyledFeedbackForm = styled.form`
 	width: 100%;
 	max-width: 475px;
 	margin: 0 auto;
@@ -12,7 +12,7 @@ export const StyledFeedbackForm = styled.div`
 	justify-content: center;
 
 	h2 {
-		margin-bottom: 30px;
+		margin-bottom: 20px;
 	}
 
 	.input-group {
@@ -29,5 +29,13 @@ export const StyledFeedbackForm = styled.div`
 		height: 35px;
 		border: none;
 		outline: none;
+	}
+
+	.message {
+		margin-top: 30px;
+
+		color: #b14e84;
+		font-size: 0.75rem;
+		font-weight: bold;
 	}
 `

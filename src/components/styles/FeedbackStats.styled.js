@@ -8,4 +8,5 @@ export const StyledFeedbackStats = styled.div`
 	justify-content: ${({ data }) => (data === 0 ? 'center' : 'space-between')};
 
 	color: #fff;
+	text-align: center;
 `

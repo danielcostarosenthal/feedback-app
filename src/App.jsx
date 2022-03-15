@@ -16,12 +16,17 @@ const App = () => {
 		}
 	}
 
+	const addFeedback = (newFeedback) => {
+		newFeedback.id = Math.floor(Date.now() * Math.random())
+		feedbackSet([newFeedback, ...feedbacks])
+	}
+
 	return (
 		<>
 			<Resets />
 			<Header />
 			<Container>
-				<FeedbackForm />
+				<FeedbackForm handleAddFeedback={addFeedback} />
 				<FeedbackStats feedbacks={feedbacks} />
 				<FeedbackList feedbacks={feedbacks} handleDelete={deleteFeedback} />
 			</Container>
