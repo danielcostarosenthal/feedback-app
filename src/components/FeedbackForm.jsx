@@ -10,6 +10,11 @@ const FeedbackForm = () => {
 		textSet(e.target.value)
 	}
 
+	const handleClick = (e) => {
+		textSet('')
+		document.querySelector('input').focus()
+	}
+
 	return (
 		<Card>
 			<StyledFeedbackForm>
@@ -22,11 +27,14 @@ const FeedbackForm = () => {
 						placeholder='Write your review'
 						value={text}
 					/>
-					{text.length >= 10 && (
-						<Button type='submit' version='primary'>
-							Send
-						</Button>
-					)}
+					<Button
+						type='submit'
+						version='primary'
+						onClick={handleClick}
+						onSubmit={handleClick}
+						isDisabled={text.length < 9 ? true : false}>
+						Send
+					</Button>
 				</div>
 			</StyledFeedbackForm>
 		</Card>

@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types'
 import { StyledButton } from '../styles/Button.styled'
 
-const Button = ({ children, type, isDisabled, version }) => {
+const Button = ({ children, type, isDisabled, version, onClick }) => {
 	return (
 		<StyledButton
 			type={type}
 			disabled={isDisabled}
 			className={`btn btn-${version}`}
-			version={version}>
+			version={version}
+			onClick={onClick}
+			onSubmit={onClick}>
 			{children}
 		</StyledButton>
 	)

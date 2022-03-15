@@ -10,9 +10,18 @@ export const StyledButton = styled.button`
 	border-radius: 5px;
 	color: ${(props) => (props.version === 'primary' ? '#fff' : '#b14e84')};
 	font-size: inherit;
-	outline: none;
 
 	:active {
+		outline: 1px solid #333;
 		transform: scale(0.98);
+	}
+
+	:disabled {
+		background-color: #bfbfbf;
+		color: #fff;
+	}
+
+	:disabled:hover {
+		cursor: not-allowed;
 	}
 `
