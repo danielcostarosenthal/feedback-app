@@ -9,7 +9,7 @@ const FeedbackItem = (props) => {
 			<button
 				className='card-delete'
 				onClick={() => props.handleDelete(props.item.id)}>
-				<FaTimes />
+				<FaTimes color='#b14e84' />
 			</button>
 			<div className='card-text'>{props.item.text}</div>
 		</Card>

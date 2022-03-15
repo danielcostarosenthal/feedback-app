@@ -7,7 +7,7 @@ export const Container = styled.div`
 	padding: 20px;
 
 	.no-feedback {
-		max-width: 425px;
+		max-width: 525px;
 		margin: 50px auto;
 
 		color: #fff;

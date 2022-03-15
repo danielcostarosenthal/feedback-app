@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const StyledCard = styled.li`
 	width: 100%;
-	max-width: 375px;
+	max-width: 475px;
 	margin: 30px auto;
 	padding: 50px 20px 30px 20px;
 	position: relative;
@@ -28,6 +28,7 @@ export const StyledCard = styled.li`
 		font-size: 1.25rem;
 		line-height: 30px;
 		text-align: center;
+		user-select: none;
 	}
 
 	.card-delete {
@@ -45,7 +46,7 @@ export const StyledCard = styled.li`
 	.card-delete > svg {
 		transform: translate(-50%, -50%);
 
-		color: #b14e84;
+		color: ${(props) => (props.color ? props.color : 'crimson')};
 		cursor: pointer;
 		font-size: 1.25rem;
 	}

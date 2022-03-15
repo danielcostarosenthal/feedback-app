@@ -7,11 +7,11 @@ import FeedbackStats from './components/FeedbackStats'
 import FeedbackData from './data/FeedbackData'
 
 const App = () => {
-	const [feedback, feedbackSet] = useState(FeedbackData)
+	const [feedbacks, feedbackSet] = useState(FeedbackData)
 
 	const deleteFeedback = (id) => {
 		if (window.confirm('Are you sure you want to delete this feedback?')) {
-			feedbackSet(feedback.filter((item) => item.id !== id))
+			feedbackSet(feedbacks.filter((item) => item.id !== id))
 		}
 	}
 
@@ -20,8 +20,8 @@ const App = () => {
 			<Resets />
 			<Header />
 			<Container>
-				<FeedbackStats feedback={feedback} />
-				<FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
+				<FeedbackStats feedbacks={feedbacks} />
+				<FeedbackList feedbacks={feedbacks} handleDelete={deleteFeedback} />
 			</Container>
 		</>
 	)
