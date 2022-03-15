@@ -7,11 +7,11 @@ const FeedbackStats = ({ feedbacks }) => {
 			return accumulator + current.rating
 		}, 0) / feedbacks.length
 
-	average = parseInt(average.toFixed(1).replace(/[.,]0$/, ''))
+	average = average.toFixed(1).replace(/[.,]0$/, '')
 
 	return (
 		<StyledFeedbackStats data={feedbacks[0].rating}>
-			{average === 0 && <h3>Check the FeedbackStats props!</h3>}
+			{average == 0 && <h3>Check the FeedbackStats props!</h3>}
 			{average > 0 && <h3>{feedbacks.length} Ratings </h3>}
 			{average > 0 ? (
 				<h3>Average Rating: {isNaN(average) ? 0 : average} </h3>
