@@ -5,7 +5,7 @@ export const StyledFeedbackStats = styled.div`
 	max-width: 475px;
 	margin: 30px auto;
 	display: flex;
-	justify-content: ${(data) => (data === 0 ? 'center' : 'space-between')};
+	justify-content: ${({ data }) => (data === 0 ? 'center' : 'space-between')};
 
 	color: #fff;
 `
