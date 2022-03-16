@@ -56,6 +56,8 @@ export const StyledCard = styled.li`
 	}
 
 	.card-text {
+		padding: 0 30px;
+
 		color: ${(props) => (props.reverse ? '#fff' : '#333')};
 		font-style: italic;
 	}

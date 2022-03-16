@@ -9,4 +9,10 @@ export const StyledFeedbackStats = styled.div`
 
 	color: #fff;
 	text-align: center;
+
+	h3 {
+		max-width: 35ch;
+
+		font-weight: 400;
+	}
 `

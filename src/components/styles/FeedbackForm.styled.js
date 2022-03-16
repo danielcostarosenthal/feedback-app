@@ -13,6 +13,9 @@ export const StyledFeedbackForm = styled.form`
 
 	h2 {
 		margin-bottom: 20px;
+
+		line-height: 1;
+		text-align: center;
 	}
 
 	.input-group {

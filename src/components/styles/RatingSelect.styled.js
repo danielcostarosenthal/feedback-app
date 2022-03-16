@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const StyledRatingSelect = styled.ul`
-	width: 250px;
+	width: 100%;
+	max-width: 475px;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
