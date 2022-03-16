@@ -20,12 +20,4 @@ export const Resets = createGlobalStyle`
     min-height: 100vh;
     background-color: #4682b4;
   }
-
-  /* ul li:first-child {
-    margin-top: 0;
-  }
-  
-  ul li:last-child {
-    margin-bottom: 0;
-  } */
 `

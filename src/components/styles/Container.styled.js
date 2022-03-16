@@ -6,6 +6,7 @@ export const Container = styled.div`
 	margin: 0 auto;
 	padding: 20px;
 
+	/* Styles for when all feebacks had been deleted or no feedback */
 	.no-feedback {
 		max-width: 525px;
 		margin: 50px auto;

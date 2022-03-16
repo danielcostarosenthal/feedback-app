@@ -82,4 +82,37 @@ export const StyledCard = styled.li`
 	.card-btn:active {
 		transform: scale(0.98);
 	}
+
+	.about-page > .title {
+		margin-bottom: 10px;
+	}
+
+	.about-page > .version {
+		margin: 10px 0;
+
+		font-style: italic;
+		font-weight: bold;
+	}
+
+	.about-page > .back-to-home > a {
+		margin-top: 30px;
+		display: block;
+		padding: 10px;
+
+		background-color: #b14e84;
+		border-radius: 5px;
+		color: #fff;
+		font-weight: bold;
+		text-align: center;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	.about-page > .back-to-home > a:active {
+		transform: scale(0.98);
+	}
+
+	.about-page > .back-to-home > a:hover {
+		opacity: 0.9;
+	}
 `

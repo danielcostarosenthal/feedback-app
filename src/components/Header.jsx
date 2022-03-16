@@ -15,7 +15,7 @@ const Header = ({ title }) => {
 
 // Header Default Props
 Header.defaultProps = {
-	title: 'Feedback React App',
+	title: 'Feedback App',
 }
 
 // Header Typechecking PropTypes

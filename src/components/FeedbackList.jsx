@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
+import { StyledFeedbackList } from './styles/FeedbackList.styled'
 import PropTypes from 'prop-types'
 import FeedbackItem from './FeedbackItem'
 
@@ -13,7 +14,7 @@ const FeedbackList = (props) => {
 	}
 
 	return (
-		<ul>
+		<StyledFeedbackList>
 			<AnimatePresence>
 				{props.feedbacks.map((item) => (
 					<motion.div
@@ -29,7 +30,7 @@ const FeedbackList = (props) => {
 					</motion.div>
 				))}
 			</AnimatePresence>
-		</ul>
+		</StyledFeedbackList>
 	)
 }
 

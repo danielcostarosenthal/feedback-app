@@ -1,17 +1,18 @@
+import { Link } from 'react-router-dom'
 import Card from '../components/shared/Card'
 
 const About = () => {
 	return (
 		<Card>
-			<div>
-				<h2>About My Project</h2>
-				<p>
+			<div className='about-page'>
+				<h2 className='title'>About My Project</h2>
+				<p className='description'>
 					This is a React Application for testing purposes. It shows how you can
 					build an app to leave feedback for a service or product.
 				</p>
-				<p>Version: 1.0.0</p>
-				<div>
-					<a href='/'>Back To Home</a>
+				<p className='version'>Version: 1.0.0</p>
+				<div className='back-to-home'>
+					<Link to='/'>Back To Home</Link>
 				</div>
 			</div>
 		</Card>
