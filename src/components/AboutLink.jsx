@@ -1,4 +1,4 @@
-import { FaQuestion } from 'react-icons/fa'
+import { FcAbout } from 'react-icons/fc'
 import { StyledAboutLink } from './styles/AboutLink.styled'
 import { Link, useLocation } from 'react-router-dom'
 
@@ -10,7 +10,7 @@ const AboutLink = () => {
 			{location.pathname !== '/about' ? (
 				<StyledAboutLink>
 					<Link to='/about'>
-						<FaQuestion />
+						<FcAbout />
 					</Link>
 				</StyledAboutLink>
 			) : null}

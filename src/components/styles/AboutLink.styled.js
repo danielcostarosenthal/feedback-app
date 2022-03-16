@@ -2,20 +2,19 @@ import styled from 'styled-components'
 
 export const StyledAboutLink = styled.div`
 	position: fixed;
-	bottom: 10px;
-	right: 10px;
+	bottom: 0px;
+	right: 15px;
 
 	svg {
 		cursor: pointer;
-		fill: #b14e84;
-		font-size: 1.5rem;
-	}
-
-	svg:active {
-		font-size: 1.35rem;
+		font-size: 2.5rem;
 	}
 
 	svg:hover {
 		opacity: 0.9;
+	}
+
+	path {
+		fill: #b14e84;
 	}
 `

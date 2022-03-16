@@ -84,7 +84,9 @@ export const StyledCard = styled.li`
 	}
 
 	.about-page > .title {
-		margin-bottom: 10px;
+		margin-bottom: 50px;
+
+		text-align: center;
 	}
 
 	.about-page > .version {
@@ -114,5 +116,16 @@ export const StyledCard = styled.li`
 
 	.about-page > .back-to-home > a:hover {
 		opacity: 0.9;
+	}
+
+	.about-page > .description {
+		margin: 20px 0;
+	}
+
+	.handle-click {
+		color: #b14e84;
+		cursor: pointer;
+		font-weight: bold;
+		text-decoration: underline;
 	}
 `
