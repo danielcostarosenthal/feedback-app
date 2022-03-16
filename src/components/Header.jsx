@@ -5,8 +5,10 @@ import logo from '../img/icons.png'
 const Header = ({ title }) => {
 	return (
 		<StyledHeader>
-			<img src={logo} alt='Icon Image' />
-			<h2>{title}</h2>
+			<div className='header-container'>
+				<img src={logo} alt='Icon Image' />
+				<h2>{title}</h2>
+			</div>
 		</StyledHeader>
 	)
 }
