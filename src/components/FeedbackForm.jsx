@@ -40,7 +40,7 @@ const FeedbackForm = ({ handleAddFeedback }) => {
 	return (
 		<Card>
 			<StyledFeedbackForm onSubmit={handleSubmit}>
-				<h2>Please rate our service</h2>
+				<h2>Please rate our services</h2>
 				<RatingSelect
 					select={(rating) => {
 						ratingSet(rating)
