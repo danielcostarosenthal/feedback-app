@@ -1,14 +1,17 @@
 import { useState } from 'react'
 import { StyledFeedbackForm } from './styles/FeedbackForm.styled'
+import { useContext } from 'react'
 import Button from './shared/Button'
 import Card from './shared/Card'
 import RatingSelect from './RatingSelect'
+import FeedbackContext from '../context/FeedbackContext'
 
-const FeedbackForm = ({ handleAddFeedback }) => {
+const FeedbackForm = () => {
 	const [text, textSet] = useState('')
 	const [rating, ratingSet] = useState(10)
 	const [isDisabled, isDisabledSet] = useState(true)
 	const [message, messageSet] = useState('')
+	const { addFeedback } = useContext(FeedbackContext)
 
 	const handleTextChange = (e) => {
 		if (text === '') {
@@ -32,7 +35,7 @@ const FeedbackForm = ({ handleAddFeedback }) => {
 				text: text,
 				rating: rating,
 			}
-			handleAddFeedback(newFeedback)
+			addFeedback(newFeedback)
 			textSet('')
 		}
 	}
