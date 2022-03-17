@@ -3,7 +3,7 @@ import { createContext, useState } from 'react'
 const FeedbackContext = createContext()
 
 export const FeedbackProvider = ({ children }) => {
-	const [feedback, feedbackSet] = useState([
+	const [feedbacks, feedbacksSet] = useState([
 		{
 			id: 1,
 			text: 'This item is from the Context API',
@@ -11,7 +11,7 @@ export const FeedbackProvider = ({ children }) => {
 		},
 	])
 	return (
-		<FeedbackContext.Provider value={{ feedback: feedback }}>
+		<FeedbackContext.Provider value={{ feedbacks: feedbacks }}>
 			{children}
 		</FeedbackContext.Provider>
 	)

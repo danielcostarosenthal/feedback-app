@@ -1,10 +1,14 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { StyledFeedbackList } from './styles/FeedbackList.styled'
-import PropTypes from 'prop-types'
+import { useContext } from 'react'
+//import PropTypes from 'prop-types'
 import FeedbackItem from './FeedbackItem'
+import FeedbackContext from '../context/FeedbackContext'
 
-const FeedbackList = (props) => {
-	if (!props.feedbacks || props.feedbacks.length === 0) {
+const FeedbackList = ({ handleDelete }) => {
+	const { feedbacks } = useContext(FeedbackContext)
+
+	if (!feedbacks || feedbacks.length === 0) {
 		return (
 			<p className='no-feedback'>
 				Please check the props passed to <span>FeedbackList</span> inside the
@@ -16,7 +20,7 @@ const FeedbackList = (props) => {
 	return (
 		<StyledFeedbackList>
 			<AnimatePresence>
-				{props.feedbacks.map((item) => (
+				{feedbacks.map((item) => (
 					<motion.div
 						key={item.id}
 						initial={{ opacity: 0 }}
@@ -25,7 +29,7 @@ const FeedbackList = (props) => {
 						<FeedbackItem
 							key={item.id}
 							item={item}
-							handleDelete={props.handleDelete}
+							handleDelete={handleDelete}
 						/>
 					</motion.div>
 				))}
@@ -35,14 +39,14 @@ const FeedbackList = (props) => {
 }
 
 // FeedbackList Typechecking PropTypes
-FeedbackList.propTypes = {
-	feedbacks: PropTypes.arrayOf(
-		PropTypes.shape({
-			rating: PropTypes.number.isRequired,
-			text: PropTypes.string.isRequired,
-			id: PropTypes.number.isRequired,
-		})
-	),
-}
+// FeedbackList.propTypes = {
+// 	feedbacks: PropTypes.arrayOf(
+// 		PropTypes.shape({
+// 			rating: PropTypes.number.isRequired,
+// 			text: PropTypes.string.isRequired,
+// 			id: PropTypes.number.isRequired,
+// 		})
+// 	),
+// }
 
 export default FeedbackList

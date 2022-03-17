@@ -1,7 +1,10 @@
 import { StyledFeedbackStats } from './styles/FeedbackStats.styled'
-import PropTypes from 'prop-types'
+import { useContext } from 'react'
+//import PropTypes from 'prop-types'
+import FeedbackContext from '../context/FeedbackContext'
 
-const FeedbackStats = ({ feedbacks }) => {
+const FeedbackStats = () => {
+	const { feedbacks } = useContext(FeedbackContext)
 	let average =
 		feedbacks.reduce((accumulator, current) => {
 			return accumulator + current.rating
@@ -37,8 +40,8 @@ FeedbackStats.defaultProps = {
 }
 
 // FeedbackStats Typechecking PropTypes
-FeedbackStats.propTypes = {
-	feedbacks: PropTypes.array.isRequired,
-}
+// FeedbackStats.propTypes = {
+// 	feedbacks: PropTypes.array.isRequired,
+// }
 
 export default FeedbackStats
