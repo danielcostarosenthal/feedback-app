@@ -3,13 +3,9 @@ import FeedbackData from '../data/FeedbackData'
 const FeedbackContext = createContext()
 
 export const FeedbackProvider = ({ children }) => {
-	const [feedbacks, feedbacksSet] = useState([
-		{
-			id: 1,
-			text: 'This item is from the Context API',
-			rating: 10,
-		},
-	])
+	console.log(FeedbackData)
+
+	const [feedbacks, feedbacksSet] = useState(FeedbackData)
 
 	const addFeedback = (newFeedback) => {
 		newFeedback.id = Math.floor(Date.now() * Math.random())
