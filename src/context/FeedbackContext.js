@@ -3,8 +3,6 @@ import FeedbackData from '../data/FeedbackData'
 const FeedbackContext = createContext()
 
 export const FeedbackProvider = ({ children }) => {
-	console.log(FeedbackData)
-
 	const [feedbacks, feedbacksSet] = useState(FeedbackData)
 
 	const addFeedback = (newFeedback) => {
