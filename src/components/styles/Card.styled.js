@@ -67,6 +67,7 @@ export const StyledCard = styled.li`
 
 		color: ${(props) => (props.reverse ? '#fff' : '#333')};
 		font-style: italic;
+		word-wrap: break-word;
 	}
 
 	/* This class is not used */

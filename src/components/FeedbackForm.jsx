@@ -17,8 +17,8 @@ const FeedbackForm = () => {
 	useEffect(() => {
 		if (feedbacksEdit.edit) {
 			isDisabledSet(false)
-			textSet(feedbacksEdit.item.text)
-			ratingSet(feedbacksEdit.item.rating)
+			textSet(feedbacksEdit.feedback.text)
+			ratingSet(feedbacksEdit.feedback.rating)
 		}
 	}, [feedbacksEdit])
 
@@ -45,7 +45,7 @@ const FeedbackForm = () => {
 				rating: rating,
 			}
 			if (feedbacksEdit.edit) {
-				updateFeedback(feedbacksEdit.item.id, newFeedback)
+				updateFeedback(feedbacksEdit.feedback.id, newFeedback)
 			} else {
 				addFeedback(newFeedback)
 			}
