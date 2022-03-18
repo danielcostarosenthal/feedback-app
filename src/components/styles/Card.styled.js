@@ -31,7 +31,8 @@ export const StyledCard = styled.li`
 		user-select: none;
 	}
 
-	.card-delete {
+	.card-delete,
+	.card-edit {
 		width: 0px;
 		height: 0px;
 		position: absolute;
@@ -43,7 +44,12 @@ export const StyledCard = styled.li`
 		outline: none;
 	}
 
-	.card-delete > svg {
+	.card-edit {
+		right: 50px;
+	}
+
+	.card-delete > svg,
+	.card-edit > svg {
 		transform: translate(-50%, -50%);
 
 		color: ${(props) => (props.color ? props.color : 'crimson')};
@@ -51,7 +57,8 @@ export const StyledCard = styled.li`
 		font-size: 1.25rem;
 	}
 
-	.card-delete > svg:active {
+	.card-delete > svg:active,
+	.card-edit > svg:active {
 		font-size: 1.1rem;
 	}
 

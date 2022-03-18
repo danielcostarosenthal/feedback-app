@@ -1,9 +1,13 @@
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import FeedbackData from '../data/FeedbackData'
 const FeedbackContext = createContext()
 
 export const FeedbackProvider = ({ children }) => {
 	const [feedbacks, feedbacksSet] = useState(FeedbackData)
+	const [feedbacksEdit, feedbacksEditSet] = useState({
+		item: {},
+		edit: false,
+	})
 
 	const addFeedback = (newFeedback) => {
 		newFeedback.id = Math.floor(Date.now() * Math.random())
@@ -16,9 +20,31 @@ export const FeedbackProvider = ({ children }) => {
 		}
 	}
 
+	const editFeedback = (item) => {
+		feedbacksEditSet({
+			item,
+			edit: true,
+		})
+	}
+
+	const updateFeedback = (id, updatedItem) => {
+		feedbacksSet(
+			feedbacks.map((item) =>
+				item.id === id ? { ...item, ...updatedItem } : item
+			)
+		)
+	}
+
 	return (
 		<FeedbackContext.Provider
-			value={{ feedbacks: feedbacks, deleteFeedback, addFeedback }}>
+			value={{
+				feedbacks,
+				feedbacksEdit,
+				addFeedback,
+				deleteFeedback,
+				editFeedback,
+				updateFeedback,
+			}}>
 			{children}
 		</FeedbackContext.Provider>
 	)
