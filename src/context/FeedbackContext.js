@@ -15,11 +15,15 @@ export const FeedbackProvider = ({ children }) => {
 	}, [])
 
 	const fetchFeedbacks = async () => {
-		//Params: ?_sort=id&_order=desc => To sort by ID and descending
+		// Params: ?_sort=id&_order=desc => To sort by ID and descending
 		const response = await fetch('http://localhost:5000/feedbacks')
 		const data = await response.json()
-		feedbacksSet(data)
-		isLoadingSet(false)
+
+		// Added a delay to better see the spinner
+		setTimeout(() => {
+			feedbacksSet(data)
+			isLoadingSet(false)
+		}, 250)
 	}
 
 	const addFeedback = (newFeedback) => {

@@ -14,12 +14,7 @@ const FeedbackStats = () => {
 
 	return (
 		<StyledFeedbackStats data={feedbacks.length === 0 ? 0 : 1}>
-			{isNaN(average) && (
-				<h3>
-					You either have deleted all the feebacks or check the FeedbackStats
-					props!
-				</h3>
-			)}
+			{isNaN(average) && <h3>Data is loading ...</h3>}
 			{average > 0 && <h3>{feedbacks.length} Ratings </h3>}
 			{average > 0 ? (
 				<h3>Average Rating: {isNaN(average) ? 0 : average} </h3>

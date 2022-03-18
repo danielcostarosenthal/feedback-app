@@ -4,11 +4,12 @@ import { useContext } from 'react'
 //import PropTypes from 'prop-types'
 import FeedbackItem from './FeedbackItem'
 import FeedbackContext from '../context/FeedbackContext'
+import Spinner from './shared/Spinner'
 
 const FeedbackList = () => {
-	const { feedbacks } = useContext(FeedbackContext)
+	const { feedbacks, isLoading } = useContext(FeedbackContext)
 
-	if (!feedbacks || feedbacks.length === 0) {
+	if (!isLoading && (!feedbacks || feedbacks.length === 0)) {
 		return (
 			<p className='no-feedback'>
 				Please check the props passed to <span>FeedbackList</span> inside the
@@ -17,7 +18,9 @@ const FeedbackList = () => {
 		)
 	}
 
-	return (
+	return isLoading ? (
+		<Spinner />
+	) : (
 		<StyledFeedbackList>
 			<AnimatePresence>
 				{feedbacks.map((item) => (
