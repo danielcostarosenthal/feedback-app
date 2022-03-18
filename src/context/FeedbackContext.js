@@ -14,9 +14,10 @@ export const FeedbackProvider = ({ children }) => {
 		fetchFeedbacks()
 	}, [])
 
+	// Loading the feedbacks thru a GET request
 	const fetchFeedbacks = async () => {
-		// Params: ?_sort=id&_order=desc => To sort by ID and descending
-		const response = await fetch('http://localhost:5000/feedbacks')
+		// Params: ?_sort=id&_order=desc => So that last feedback appear first
+		const response = await fetch('/feedbacks?_sort=id&_order=desc')
 		const data = await response.json()
 
 		// Added a delay to better see the spinner
@@ -26,17 +27,34 @@ export const FeedbackProvider = ({ children }) => {
 		}, 250)
 	}
 
-	const addFeedback = (newFeedback) => {
-		newFeedback.id = Math.floor(Date.now() * Math.random())
-		feedbacksSet([newFeedback, ...feedbacks])
+	// Adding feedback thru a POST request
+	const addFeedback = async (newFeedback) => {
+		const response = await fetch('/feedbacks', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(newFeedback),
+		})
+
+		const data = await response.json()
+
+		// The server automatically assigns an ID
+		//newFeedback.id = Math.floor(Date.now() * Math.random())
+		feedbacksSet([data, ...feedbacks])
 	}
 
-	const deleteFeedback = (id) => {
+	// Deleting feedback thru a DELETE request
+	const deleteFeedback = async (id) => {
 		if (window.confirm('Are you sure you want to delete this feedback?')) {
+			await fetch(`/feedbacks/${id}`, {
+				method: 'DELETE',
+			})
 			feedbacksSet(feedbacks.filter((feedback) => feedback.id !== id))
 		}
 	}
 
+	// Adding the edit key to the feedback signaling it can be edited
 	const editFeedback = (feedback) => {
 		feedbacksEditSet({
 			feedback,
@@ -44,10 +62,20 @@ export const FeedbackProvider = ({ children }) => {
 		})
 	}
 
-	const updateFeedback = (id, updatedItem) => {
+	// Updating feedback thru a PUT request
+	const updateFeedback = async (id, updatedFeedback) => {
+		const response = await fetch(`/feedbacks/${id}`, {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(updatedFeedback),
+		})
+
+		const data = await response.json()
 		feedbacksSet(
 			feedbacks.map((feedback) =>
-				feedback.id === id ? { ...feedback, ...updatedItem } : feedback
+				feedback.id === id ? { ...feedback, ...data } : feedback
 			)
 		)
 
