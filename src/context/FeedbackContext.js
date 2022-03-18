@@ -3,11 +3,24 @@ import FeedbackData from '../data/FeedbackData'
 const FeedbackContext = createContext()
 
 export const FeedbackProvider = ({ children }) => {
-	const [feedbacks, feedbacksSet] = useState(FeedbackData)
+	const [isLoading, isLoadingSet] = useState(true)
+	const [feedbacks, feedbacksSet] = useState([])
 	const [feedbacksEdit, feedbacksEditSet] = useState({
 		feedback: {},
 		edit: false,
 	})
+
+	useEffect(() => {
+		fetchFeedbacks()
+	}, [])
+
+	const fetchFeedbacks = async () => {
+		//Params: ?_sort=id&_order=desc => To sort by ID and descending
+		const response = await fetch('http://localhost:5000/feedbacks')
+		const data = await response.json()
+		feedbacksSet(data)
+		isLoadingSet(false)
+	}
 
 	const addFeedback = (newFeedback) => {
 		newFeedback.id = Math.floor(Date.now() * Math.random())
@@ -45,6 +58,7 @@ export const FeedbackProvider = ({ children }) => {
 			value={{
 				feedbacks,
 				feedbacksEdit,
+				isLoading,
 				addFeedback,
 				deleteFeedback,
 				editFeedback,

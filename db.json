@@ -26,7 +26,7 @@
 			"id": 5
 		},
 		{
-			"rating": "1",
+			"rating": 1,
 			"text": "I hated the Git Crash Course",
 			"id": 6
 		}
