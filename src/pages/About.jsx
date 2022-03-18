@@ -22,8 +22,8 @@ const About = () => {
 					<span className='handle-click' onClick={handleClick}>
 						Brad Traversy's application
 					</span>{' '}
-					but with my own coding style using styled components and adding other
-					features to the final application.
+					but with my own coding style using styled components and adding many
+					other features to the final application.
 				</p>
 				<p className='version'>Version: 1.0.0</p>
 				<div className='back-to-home'>

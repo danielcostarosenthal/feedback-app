@@ -60,6 +60,9 @@ export const FeedbackProvider = ({ children }) => {
 			feedback,
 			edit: true,
 		})
+
+		console.log(feedback)
+		document.querySelector('input').focus()
 	}
 
 	// Updating feedback thru a PUT request
