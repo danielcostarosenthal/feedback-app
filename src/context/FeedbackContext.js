@@ -20,18 +20,23 @@ export const FeedbackProvider = ({ children }) => {
 		}
 	}
 
+	const editFeedback = (item) => {
+		feedbacksEditSet({
+			item,
+			edit: true,
+		})
+	}
+
 	const updateFeedback = (id, updatedItem) => {
 		feedbacksSet(
 			feedbacks.map((item) =>
 				item.id === id ? { ...item, ...updatedItem } : item
 			)
 		)
-	}
 
-	const editFeedback = (item) => {
 		feedbacksEditSet({
-			item,
-			edit: true,
+			item: {},
+			edit: false,
 		})
 	}
 
