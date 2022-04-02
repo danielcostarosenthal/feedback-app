@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from 'react'
-import FeedbackData from '../data/FeedbackData'
 const FeedbackContext = createContext()
 
 export const FeedbackProvider = ({ children }) => {
@@ -16,7 +15,7 @@ export const FeedbackProvider = ({ children }) => {
 
 	// Loading the feedbacks thru a GET request
 	const fetchFeedbacks = async () => {
-		// Params: ?_sort=id&_order=desc => So that last feedback appear first
+		// Params: ?_sort=id&_order=desc => The last feedback appears first
 		const response = await fetch('/feedbacks?_sort=id&_order=desc')
 		const data = await response.json()
 
